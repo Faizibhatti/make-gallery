@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+</head>
+<style>
+    .img-width {
+        width: 200px;
+        height: 200px;
+    }
+    .white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 40px;
+  width: auto;
+  max-width: 200px;
+  margin: 20px auto;
+  text-align: center;
+}
+</style>
+
+<body>
+    <!-- single-image -->
+    <div class="container">
+        <marquee behavior="slope" direction="left">
+            <h1>Make gallery</h1>
+        </marquee>
+        <a id="img-popup" href="1.jpg">
+            <img class="img-width img-fluid" src="1.jpg" alt="">
+        </a>
+    </div>
+    <!-- parent-image -->
+    <div class="container parent-image-popup mt-5">
+        <marquee behavior="slope" direction="left">
+            <h1>Make parent image class gallery</h1>
+        </marquee>
+        <a href="1.jpg">Open popup 1</a>
+        <a href="2.jpg">Open popup 2</a>
+        <a href="3.jpg">Open popup 3</a>
+    </div>
+    <!-- make image, video, text popup  -->
+    <div class="container mt-5">
+        <marquee behavior="slope" direction="left">
+            <h1>click button and check gallery</h1>
+        </marquee>
+        <div id="open-button">
+            <button class="btn btn-info" type="submit">Click Button</button>
+        </div>
+        <div id="open-button1">
+            <button class="btn btn-info mt-2" type="submit">Click Button</button>
+        </div>
+        <div id="text-popup" class="mfp-hide white-popup">
+            I am faizi bhatti
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="magnific-popup.css">
+
+    <!-- Magnific Popup core JS file -->
+    <script src="jquery.magnific-popup.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#img-popup').magnificPopup({ type: 'image' });
+            $('.parent-image-popup').find('a').magnificPopup({ type: 'image' });
+            // <!-- make image, video, text popup  -->
+            // Example with single object
+            $('#open-button').magnificPopup({
+                items: {
+                    src: '1.jpg'
+                },
+                type: 'image'
+            });
+            $('#open-button1').magnificPopup({
+                items: [
+                    {
+                        src: '1.jpg'
+                    },
+                    {
+                        src: '2.jpg'
+                    },
+                    {
+                        src:'<iframe width="853" height="480" src="https://www.youtube.com/embed/ois1P-u8zx0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                        type:'iframe'
+                    },
+                    {
+                      src:  '#text-popup',
+                      type:'inline'
+                    },
+                    {
+                        src:'<div class="white-popup" >wao great work</div>',
+                        type:'inline'
+                    }
+                ],
+                gallery: {
+                    enabled: true
+                },
+                type: 'image' // this is default type
+            });
+        });
+    </script>
+</body>
+
+</html>
