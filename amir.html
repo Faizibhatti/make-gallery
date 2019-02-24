@@ -17,15 +17,21 @@
         width: 200px;
         height: 200px;
     }
+
     .white-popup {
-  position: relative;
-  background: #FFF;
-  padding: 40px;
-  width: auto;
-  max-width: 200px;
-  margin: 20px auto;
-  text-align: center;
-}
+        position: relative;
+        background: #FFF;
+        padding: 40px;
+        width: auto;
+        max-width: 200px;
+        margin: 20px auto;
+        text-align: center;
+    }
+    .info
+    {
+        display: block;
+        background-color: red;
+    }
 </style>
 
 <body>
@@ -61,6 +67,54 @@
         <div id="text-popup" class="mfp-hide white-popup">
             I am faizi bhatti
         </div>
+    </div>
+    <!-- select image -->
+    <div class="container">
+        <marquee behavior="slope" direction="left">
+            <h1>SELECT IMAGE</h1>
+        </marquee>
+        <ul id="select-item">
+            <li style="float:left;">
+                <a href="#">
+                    <img class="img-width img-fluid" src="1.jpg" alt="">
+                    <h4>IMAGE 1</h4>
+                    <P class="price reset">PRICE 43$</P>
+                    <div class="info d-none">
+                        These are fine flowers.
+                    </div>
+                </a>
+            </li>
+            <li style="float:left;">
+                <a href="#">
+                    <img class="img-width img-fluid" src="1.jpg" alt="" style="margin-left:10px;">
+                    <h4>IMAGE 2</h4>
+                    <P class="price reset">PRICE 43$</P>
+                    <div class="info d-none">
+                        These are fine flowers.
+                    </div>
+                </a>
+            </li>
+            <li style="float:left;">
+                <a href="#">
+                    <img class="img-width img-fluid" src="1.jpg" alt="" style="margin-left:10px;">
+                    <h4>IMAGE 3</h4>
+                    <P class="price reset">PRICE 43$</P>
+                    <div class="info d-none">
+                        These are fine flowers.
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="img-width img-fluid" src="1.jpg" alt="" style="margin-left:10px;">
+                    <h4>IMAGE 4</h4>
+                    <P class="price reset">PRICE 43$</P>
+                    <div class="info">
+                        These are fine flowers.
+                    </div>
+                </a>
+            </li>
+        </ul>
     </div>
 
 
@@ -104,16 +158,16 @@
                         src: '2.jpg'
                     },
                     {
-                        src:'<iframe width="853" height="480" src="https://www.youtube.com/embed/ois1P-u8zx0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                        type:'iframe'
+                        src: '<iframe width="853" height="480" src="https://www.youtube.com/embed/ois1P-u8zx0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                        type: 'iframe'
                     },
                     {
-                      src:  '#text-popup',
-                      type:'inline'
+                        src: '#text-popup',
+                        type: 'inline'
                     },
                     {
-                        src:'<div class="white-popup" >wao great work</div>',
-                        type:'inline'
+                        src: '<div class="white-popup" >wao great work</div>',
+                        type: 'inline'
                     }
                 ],
                 gallery: {
@@ -121,7 +175,23 @@
                 },
                 type: 'image' // this is default type
             });
+            // animation select image
+            var $flowers = $('#select-item');
+            $flowers.find('li:first a').on('click', function (e) {
+                e.preventDefault();
+                var $nextone = $flowers.find('li:nth-child(2) a');
+                $nextone.toggle('slow');
+            });
+            $flowers.find('a').on('mouseenter mouseleave', function(e){
+		e.preventDefault();
+
+		$(this).children('.info').toggle('slow');
+		// $(this).children('.info').slideToggle('slow');
+	});
+
         });
+
+
     </script>
 </body>
 
